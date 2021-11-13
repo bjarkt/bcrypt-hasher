@@ -1,0 +1,20 @@
+name: Publish docker image
+on:
+  push:
+    branches: [main]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Build and push
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITGUB_PAT }}
+        registry: ghcr.io
+        repository: bjarkt/bcrypt-hasher
+        tags: ${{ github.sha }}
+        dockerfile: Dockerfile
