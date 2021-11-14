@@ -24,4 +24,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: bjarkt/bcrypt-hasher:latest,bjarkt/bcrypt-hasher:${{ github.sha }}
+        tags: ghcr.io/bjarkt/bcrypt-hasher:latest,ghcr.io/bjarkt/bcrypt-hasher:${{ github.sha }}
